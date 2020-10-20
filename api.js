@@ -5,7 +5,6 @@ const STATS_URL = `https://api.sportsdata.io/v3/nfl/projections/json/PlayerGameP
 const getStats = async() => {
     try{
         const response = await axios.get(STATS_URL)
-        //console.log(response)
         buildDropdown(response.data)
     } catch(error) {
         console.log(error)
@@ -16,9 +15,8 @@ const buildDropdown = (data) => {
     const dropdownDiv = document.querySelector('.dropdown')
     const dropdown = document.createElement('select')
     dropdown.addEventListener('change', getStatInfo)
-    //console.log(data)
+
     data.forEach(player => {
-        //console.log(player)
         let optionElement = document.createElement('option')
         optionElement.innerText = `${player.Name} ${player.Team} ${player.FantasyPosition}`
         optionElement.setAttribute('value', player.PlayerID)
@@ -29,7 +27,6 @@ const buildDropdown = (data) => {
 }
 
 const getStatInfo = async(event) => {
-    //console.log(event.target.value)
     let player = event.target.value
     const GET_STAT_URL = `https://api.sportsdata.io/v3/nfl/projections/json/PlayerGameProjectionStatsByPlayerID/2020REG/7/${player}?key=${API_KEY}`
     try{
@@ -62,7 +59,7 @@ const displayStatInfo = (statData) => {
     let position = document.createElement('h4')
     position.innerText = `Position: ${statData.playerPosition}`
     
-    let points = document.createElement('h5')
+    let points = document.createElement('h4')
     points.innerText = `Projected Fantasy Points: ${statData.playerPoints}`
 
 

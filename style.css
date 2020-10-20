@@ -1,0 +1,38 @@
+
+body {
+    grid-template-columns: 40px 50px auto 50px 40px;
+    grid-template-rows: 25% 100px auto;
+}
+
+h1 {
+    text-align: center;
+    font-family: Chalkduster, fantasy;
+    background: linear-gradient(90deg, #0eb350 47.62%, #ffffff 47.62%, #ffffff 50%, #0eb350 50%, #0eb350 97.62%, #ffffff 97.62%, #ffffff 100%);
+    background-size: 42.00px 42.00px;
+    color: black;
+    padding: 40px;  
+}
+.navbar {
+    justify-items: right;
+}
+.active {
+    background-color: #a88d5a;
+    font-weight: bolder;
+    font-size: 30px;
+}
+.active2 {
+    background-color: #e49439;
+    font-weight: bolder;
+    font-size: 30px;
+    
+}
+
+.search {
+    background-color: #db7069;
+    border-style: double;
+    
+}
+
+a{
+    color: #131214
+}
