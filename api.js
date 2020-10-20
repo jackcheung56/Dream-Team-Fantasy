@@ -21,36 +21,55 @@ const buildDropdown = (data) => {
         //console.log(player)
         let optionElement = document.createElement('option')
         optionElement.innerText = `${player.Name} ${player.Team} ${player.FantasyPosition}`
-        optionElement.setAttribute('value', player.Name)
+        optionElement.setAttribute('value', player.PlayerID)
         //console.log(optionElement)
         dropdown.appendChild(optionElement)
     })
     dropdownDiv.appendChild(dropdown)
 }
 
-const getStatInfo = async (event) => {
-    let searchBox = document.querySelector('.search')
+const getStatInfo = async(event) => {
     //console.log(event.target.value)
-    const STATS_URL = `https://api.sportsdata.io/v3/nfl/projections/json/PlayerGameProjectionStatsByWeek/2020REG/7?key=${API_KEY}`
-    try {
-        const response = await axios.get(STATS_URL)
-        let statInfo = response.data
-        let newStat = {
-            
-
+    let player = event.target.value
+    const GET_STAT_URL = `https://api.sportsdata.io/v3/nfl/projections/json/PlayerGameProjectionStatsByPlayerID/2020REG/7/${player}?key=${API_KEY}`
+    try{
+        const response = await axios.get(GET_STAT_URL)
+        let statData = response.data
+        let myData = {
+            player: player,
+            playerName: statData.Name,
+            playerTeam: statData.Team,
+            playerPosition: statData.Position,
+            playerPoints: statData.FantasyPointsPPR
         }
+        displayStatInfo(myData)
         //console.log(response)
-    } catch(error){
+    } catch(error) {
         console.log(error)
     }
 }
 
-const showStats = (statInfo) => {
-    let searchBox = document.querySelector('.search')
-    let resultBox = document.createElement('div')
-    resultBox.className = 'change-result'
-    let resultHeader = document.createElement('h1')
-    resultHeader.innerText = 
-}
+const displayStatInfo = (statData) => {
+    let searchArea = document.querySelector('.search')
+    let resultWrapper = document.createElement('div')
+    resultWrapper.className = 'search-result'
+    let resultHeader = document.createElement('h3')
+    resultHeader.innerText = statData.playerName
+    
+    let team = document.createElement('h4')
+    team.innerText = `Team: ${statData.playerTeam}`
+    
+    let position = document.createElement('h4')
+    position.innerText = `Position: ${statData.playerPosition}`
+    
+    let points = document.createElement('h5')
+    points.innerText = `Projected Fantasy Points: ${statData.playerPoints}`
 
+
+    resultWrapper.appendChild(resultHeader)
+    resultWrapper.appendChild(team)
+    resultWrapper.appendChild(position)
+    resultWrapper.appendChild(points)
+    searchArea.appendChild(resultWrapper)
+}
 window.onload = getStats
