@@ -12,17 +12,18 @@ const getStats = async() => {
 }
 
 const buildDropdown = (data) => {
-    const dropdownDiv2 = document.querySelector('.dropdown2')
+    const dropdownDiv = document.querySelector('.dropdown2')
     const dropdown = document.createElement('select')
     dropdown.addEventListener('change', getStatInfo)
+    
     data.forEach(player => {
         let optionElement = document.createElement('option')
         optionElement.innerText = `${player.Name} ${player.Team} ${player.Position}`
         optionElement.setAttribute('value', player.PlayerID)
-        console.log(optionElement)
+        //console.log(optionElement)
         dropdown.appendChild(optionElement)
     })
-    dropdownDiv2.appendChild(dropdown)
+    dropdownDiv.appendChild(dropdown)
 }
 
 const getStatInfo = async(event) => {
@@ -32,7 +33,6 @@ const getStatInfo = async(event) => {
         const response = await axios.get(GET_STAT_URL)
         let statData = response.data
         let myData = {
-            player: player,
             playerName: statData.Name,
             playerTeam: statData.Team,
             playerPosition: statData.Position,
@@ -56,9 +56,43 @@ const displayStatInfo = (statData) => {
     let searchArea = document.querySelector('.search')
     let result = document.createElement('div')
     result.className = 'search-result'
-    let resultHeader = document.createElement('h3')
-    resultHeader.innerText = statData.playerName
+    let name = document.createElement('h3')
+    name.innerText = statData.playerName
+    let team = document.createElement('h4')
+    team.innerText = `Team: ${statData.playerTeam}`
+    let position = document.createElement('h4')
+    position.innerText = `Position: ${statData.playerPosition}`
+    let fieldGoal = document.createElement('h4')
+    fieldGoal.innerText = `FG Percent: ${statData.playerFG}`
+    let freeThrow = document.createElement('h4')
+    freeThrow.innerText = `FT Percent: ${statData.playerFT}`
+    let threePT = document.createElement('h4')
+    threePT.innerText = `3PT Made: ${statData.playerThree}`
+    let rebound = document.createElement('h4')
+    rebound.innerText = `Rebounds: ${statData.playerRebound}`
+    let assist = document.createElement('h4')
+    assist.innerText = `Assist: ${statData.playerAssist}`
+    let steal = document.createElement('h4')
+    steal.innerText = `Steals: ${statData.playerSteal}`
+    let block = document.createElement('h4')
+    block.innerText = `Blocks: ${statData.playerBlock}`
+    let turnover = document.createElement('h4')
+    turnover.innerText = `Turnovers: ${statData.playerTurnover}`
+    let points = document.createElement('h4')
+    points.innerText = `Points: ${statData.playerPoints}`
 
-    
+    result.appendChild(name)
+    result.appendChild(team)
+    result.appendChild(position)
+    result.appendChild(fieldGoal)
+    result.appendChild(freeThrow)
+    result.appendChild(threePT)
+    result.appendChild(rebound)
+    result.appendChild(assist)
+    result.appendChild(steal)
+    result.appendChild(block)
+    result.appendChild(turnover)
+    result.appendChild(points)
+    searchArea.appendChild(result)
 }
 window.onload = getStats

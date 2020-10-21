@@ -33,7 +33,6 @@ const getStatInfo = async(event) => {
         const response = await axios.get(GET_STAT_URL)
         let statData = response.data
         let myData = {
-            player: player,
             playerName: statData.Name,
             playerTeam: statData.Team,
             playerPosition: statData.Position,
@@ -50,23 +49,23 @@ const displayStatInfo = (statData) => {
     let searchArea = document.querySelector('.search')
     let resultWrapper = document.createElement('div')
     resultWrapper.className = 'search-result'
-    let resultHeader = document.createElement('h3')
-    resultHeader.innerText = statData.playerName
-    
+    let name = document.createElement('h3')
+    name.innerText = statData.playerName
     let team = document.createElement('h4')
     team.innerText = `Team: ${statData.playerTeam}`
-    
     let position = document.createElement('h4')
     position.innerText = `Position: ${statData.playerPosition}`
-    
     let points = document.createElement('h4')
     points.innerText = `Projected Fantasy Points: ${statData.playerPoints}`
-
-
-    resultWrapper.appendChild(resultHeader)
+    
+    resultWrapper.appendChild(name)
     resultWrapper.appendChild(team)
     resultWrapper.appendChild(position)
     resultWrapper.appendChild(points)
     searchArea.appendChild(resultWrapper)
+}
+
+const clearStatInfo = () => {
+    
 }
 window.onload = getStats
