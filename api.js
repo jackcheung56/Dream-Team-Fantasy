@@ -45,7 +45,7 @@ const getStatInfo = async(event) => {
     }
 }
 
-const displayStatInfo = (statData) => {
+const displayStatInfo = (statData) => { 
     let searchArea = document.querySelector('.search')
     let resultWrapper = document.createElement('div')
     resultWrapper.className = 'search-result'
@@ -65,7 +65,6 @@ const displayStatInfo = (statData) => {
     searchArea.appendChild(resultWrapper)
 }
 
-const clearStatInfo = () => {
-    
-}
+
+
 window.onload = getStats
