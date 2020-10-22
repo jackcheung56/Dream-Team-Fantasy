@@ -10,12 +10,12 @@ body {
 h1 {
     text-align: center;
     font-family: Chalkduster, fantasy;
-    background: linear-gradient(90deg, #ffffff 3.49%, #2aa326 3.49%, #2aa326 50%, #ffffff 50%, #ffffff 53.49%, #2aa326 53.49%, #2aa326 100%);
-    /* Used A CSS stripes generator to do the background for the H1*/
+    font-size: 40px;
+    background-image: url("https://image.freepik.com/free-vector/top-views-american-football-field-green-grass-pattern-sport-background_64749-403.jpg");
     background-size: 86.00px 86.00px;
     color: black;
     padding: 60px;
- 
+    background-repeat: none;
 }
 .navbar {
     display: flex;
@@ -54,7 +54,7 @@ h1 {
 
 a{
     color: black;
-    text-decoration: none;
+    
 }
 
 .dropdown {
