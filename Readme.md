@@ -22,6 +22,7 @@ Position: "RB",
 ProjectedFantasyPoints: 352.5,
 
 Example of NBA data:
+
 Name: "Giannis Antetokounmpo",
 
 Team: "MIL",
