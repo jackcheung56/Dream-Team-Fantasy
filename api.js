@@ -40,29 +40,37 @@ const getStatInfo = async(event) => {
         }
         displayStatInfo(myData)
         //console.log(response)
+        let name = document.querySelector('.name')
+        name.innerHTML = `Name: ${myData.playerName}`
+        let team = document.querySelector('.team')
+        team.innerHTML = `Team: ${myData.playerTeam}`
+        let position = document.querySelector('.position')
+        position.innerHTML = `Position: ${myData.playerPosition}`
+        let points = document.querySelector('.points')
+        points.innerHTML =`Fantasy Points: ${myData.playerPoints}`
     } catch(error) {
         console.log(error)
     }
 }
 
 const displayStatInfo = (statData) => { 
+    
     let searchArea = document.querySelector('.search')
     let resultWrapper = document.createElement('div')
     resultWrapper.className = 'search-result'
+    
     let name = document.createElement('h3')
     name.innerText = statData.playerName
+    
     let team = document.createElement('h4')
     team.innerText = `Team: ${statData.playerTeam}`
+    
     let position = document.createElement('h4')
     position.innerText = `Position: ${statData.playerPosition}`
+    
     let points = document.createElement('h4')
     points.innerText = `Projected Fantasy Points: ${statData.playerPoints}`
-    
-    resultWrapper.appendChild(name)
-    resultWrapper.appendChild(team)
-    resultWrapper.appendChild(position)
-    resultWrapper.appendChild(points)
-    searchArea.appendChild(resultWrapper)
+
 }
 
 
