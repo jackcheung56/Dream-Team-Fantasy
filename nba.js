@@ -20,7 +20,6 @@ const buildDropdown = (data) => {
         let optionElement = document.createElement('option')
         optionElement.innerText = `${player.Name} ${player.Team} ${player.Position}`
         optionElement.setAttribute('value', player.PlayerID)
-        //console.log(optionElement)
         dropdown.appendChild(optionElement)
     })
     dropdownDiv.appendChild(dropdown)
@@ -32,6 +31,7 @@ const getStatInfo = async(event) => {
     try{
         const response = await axios.get(GET_STAT_URL)
         let statData = response.data
+        console.log(response.data)
         let myData = {
             playerName: statData.Name,
             playerTeam: statData.Team,
@@ -66,7 +66,7 @@ const getStatInfo = async(event) => {
         let steal = document.querySelector('.steals')
         steal.innerHTML = `Steals: ${myData.playerSteal}`
         let block = document.querySelector('.blocks')
-        block.innerHTML = `Blocks: ${mydata.playerBlock}`
+        block.innerHTML = `Blocks: ${myData.playerBlock}`
         let turnover = document.querySelector('.turnover')
         turnover.innerHTML = `Turnovers: ${myData.playerTurnover}`
         let points = document.querySelector('.points')
@@ -107,4 +107,6 @@ const displayStatInfo = (statData) => {
     points.innerText = `Points: ${statData.playerPoints}`
 
 }
+
+
 window.onload = getStats
