@@ -47,6 +47,31 @@ const getStatInfo = async(event) => {
             playerPoints: statData.Points
         }
         displayStatInfo(myData)
+        let name = document.querySelector('.name')
+        name.innerHTML = `Name: ${myData.playerName}`
+        let team = document.querySelector('.team')
+        team.innerHTML = `Team: ${myData.playerTeam}`
+        let position = document.querySelector('.position')
+        position.innerHTML = `Position ${myData.playerPosition}`
+        let fieldGoal = document.querySelector('.fieldgoal')
+        fieldGoal.innerHTML = `Field Goal %: ${myData.playerFG}`
+        let freeThrow = document.querySelector('.freethrow')
+        freeThrow.innerHTML = `Free Throw %: ${myData.playerFT}`
+        let three = document.querySelector('.threept')
+        three.innerHTML = `Three Pt Made ${myData.playerThree}`
+        let rebound = document.querySelector('.rebound')
+        rebound.innerHTML = `Rebounds: ${myData.playerRebound}`
+        let assist = document.querySelector('.assist')
+        assist.innerHTML = `Assist: ${myData.playerAssist}`
+        let steal = document.querySelector('.steals')
+        steal.innerHTML = `Steals: ${myData.playerSteal}`
+        let block = document.querySelector('.blocks')
+        block.innerHTML = `Blocks: ${mydata.playerBlock}`
+        let turnover = document.querySelector('.turnover')
+        turnover.innerHTML = `Turnovers: ${myData.playerTurnover}`
+        let points = document.querySelector('.points')
+        points.innerHTML =`Points: ${myData.playerPoints}`
+
     } catch(error) {
         console.log(error)
     }
@@ -81,18 +106,5 @@ const displayStatInfo = (statData) => {
     let points = document.createElement('h4')
     points.innerText = `Points: ${statData.playerPoints}`
 
-    result.appendChild(name)
-    result.appendChild(team)
-    result.appendChild(position)
-    result.appendChild(fieldGoal)
-    result.appendChild(freeThrow)
-    result.appendChild(threePT)
-    result.appendChild(rebound)
-    result.appendChild(assist)
-    result.appendChild(steal)
-    result.appendChild(block)
-    result.appendChild(turnover)
-    result.appendChild(points)
-    searchArea.appendChild(result)
 }
 window.onload = getStats
