@@ -11,7 +11,7 @@
 
 [Trello Link](https://trello.com/b/hAaHL5x3/nfl-api-project)
 
-Example of NFL data:
+**Example of NFL data:**
 
 Name: "Christian McCaffrey",
 
@@ -21,7 +21,7 @@ Position: "RB",
 
 ProjectedFantasyPoints: 352.5,
 
-Example of NBA data:
+**Example of NBA data:**
 
 Name: "Giannis Antetokounmpo",
 

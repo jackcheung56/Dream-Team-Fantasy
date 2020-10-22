@@ -31,7 +31,7 @@ const getStatInfo = async(event) => {
     try{
         const response = await axios.get(GET_STAT_URL)
         let statData = response.data
-        console.log(response.data)
+        //console.log(response.data)
         let myData = {
             playerName: statData.Name,
             playerTeam: statData.Team,

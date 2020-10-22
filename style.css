@@ -2,7 +2,6 @@
 body {
     display: grid;
     grid-template-rows: 1fr 40px 50px ;
-    background-color: black;
     background-image: url("https://images.pexels.com/photos/209956/pexels-photo-209956.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
     background-repeat: none;
     background-size: cover;
@@ -12,34 +11,41 @@ h1 {
     text-align: center;
     font-family: Chalkduster, fantasy;
     background: linear-gradient(90deg, #ffffff 3.49%, #2aa326 3.49%, #2aa326 50%, #ffffff 50%, #ffffff 53.49%, #2aa326 53.49%, #2aa326 100%);
+    /* Used A CSS stripes generator to do the background for the H1*/
     background-size: 86.00px 86.00px;
     color: black;
-    padding: 40px;  
+    padding: 60px;
+ 
 }
 .navbar {
+    display: flex;
     border: 1px solid #ccc;
     border-width: 1px 0;
     list-style:none;
     margin: 0;
     padding: 0;
-    text-align:center;
+    justify-content: space-evenly;
+
 }
 .active {
     background-color: #a88d5a;
     font-weight: bolder;
     font-size: 30px;
     font-family: Impact, fantasy;
+    padding: 0 100px 0 100px;
 }
 .active2 {
     background-color: #e49439;
     font-weight: bolder;
     font-size: 30px;
     font-family: Marker Felt, fantasy;
+    text-align: right;
+    padding: 0 100px 0 100px;
     
 }
 
 .search {
-    background-color: #aaafda;
+    background-color: #93d1ee;
     border-style: groove;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 25px;
@@ -55,7 +61,7 @@ a{
     left: 50%;
     right: auto;
     text-align: center;
-
+    padding-top: 15px;
 }
 
 

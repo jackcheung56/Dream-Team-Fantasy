@@ -1,13 +1,14 @@
 body {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    flex-flow: column wrap;
 }
 
 header {
+    display: grid;
+    grid-template-columns: 1fr;
     font-family: Marker Felt, fantasy;
-    align-content: center;
 }
 
 .navbar {
@@ -21,15 +22,14 @@ header {
 .active {
     background-color: #a88d5a;
     font-weight: bolder;
-    font-size: 30px;
+    font-size: 20px;
     font-family: Impact, fantasy;
 }
 .active2 {
     background-color: #e49439;
     font-weight: bolder;
-    font-size: 30px;
+    font-size: 20px;
     font-family: Marker Felt, fantasy;
-    
 }
 
 a{
