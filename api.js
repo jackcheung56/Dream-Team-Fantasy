@@ -47,7 +47,7 @@ const getStatInfo = async(event) => {  //using another API link to get the stat 
         let position = document.querySelector('.position')
         position.innerHTML = `Position: ${myData.playerPosition}`
         let points = document.querySelector('.points')
-        points.innerHTML =`Fantasy Points: ${myData.playerPoints}`
+        points.innerHTML =`Projected Fantasy Points: ${myData.playerPoints}`
     } catch(error) {
         console.log(error)
     }
@@ -61,7 +61,7 @@ const displayStatInfo = (statData) => {
     
     let name = document.createElement('h3')
     name.innerText = statData.playerName  //This was initally to get the data and print it on the page using appendChild but it kept stacking so I was showed to use the other method on top.
-                                        // Not 100% sure what this does now but when I comment it out, it doesn't work anymore.
+                                        // Not 100% sure what this does now but when I comment it out, the code doesn't work anymore
     let team = document.createElement('h4')
     team.innerText = `Team: ${statData.playerTeam}`
     
